@@ -2,588 +2,1290 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Hout Bay Dental Studio — Trusted Dentist in Hout Bay</title>
-<meta name="description" content="Hout Bay Dental Studio — modern dental care in Hout Bay. Book online or call +27 21 790 2910." />
-<meta name="theme-color" content="#1e40af" />
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>Hout Bay Dental Studio — Forty-two years on Victoria Avenue</title>
+<meta name="description" content="Hout Bay Dental Studio. Founded 1983 by Dr Andy Effting. Family dentistry in four languages, ten metres from the bay." />
+<meta name="theme-color" content="#0F1E2E" />
 <meta property="og:title" content="Hout Bay Dental Studio" />
-<meta property="og:description" content="Hout Bay Dental Studio — modern dental care in Hout Bay. Book online or call +27 21 790 2910." />
+<meta property="og:description" content="Forty-two years on Victoria Avenue. Family dentistry in four languages." />
 <meta property="og:type" content="website" />
 <meta property="og:locale" content="en_ZA" />
-<meta property="og:image" content="https://images.unsplash.com/photo-1704455306251-b4634215d98f?w=1800&q=80&auto=format&fit=crop" />
+<meta property="og:image" content="https://images.unsplash.com/photo-1501664201380-78af13a2783e?w=1600&q=85&auto=format&fit=crop" />
 
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Dentist",
   "name": "Hout Bay Dental Studio",
-  "image": "https://images.unsplash.com/photo-1704455306251-b4634215d98f?w=1800&q=80&auto=format&fit=crop",
+  "founder": "Dr Andy Effting",
+  "foundingDate": "1983",
+  "image": "https://images.unsplash.com/photo-1501664201380-78af13a2783e?w=1600&q=85&auto=format&fit=crop",
   "telephone": "+27 21 790 2910",
+  "email": "info@hbds.co.za",
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "Hout Bay",
-    "addressLocality": "Cape Town",
+    "streetAddress": "Joslyn Place, 34 Victoria Avenue",
+    "addressLocality": "Hout Bay",
+    "postalCode": "7806",
     "addressRegion": "Western Cape",
     "addressCountry": "ZA"
   },
-  "openingHours": "Mo-Fr 08:00-17:00, Sa 08:00-13:00",
-  "priceRange": "RR"
+  "openingHours": "Mo-Fr 08:00-17:00, Sa 09:00-12:00",
+  "availableLanguage": ["English", "Afrikaans", "Dutch", "German"]
 }
 </script>
 
-<script src="https://cdn.tailwindcss.com"></script>
-<script>
-  tailwind.config = {
-    theme: {
-      extend: {
-        colors: {
-          brand: {
-            DEFAULT: '#1e40af',
-            dark: '#1e3a8a',
-            light: '#93c5fd'
-          }
-        },
-        fontFamily: {
-          display: ['Fraunces', 'serif'],
-          sans: ['Inter', 'sans-serif']
-        },
-        animation: {
-          'float': 'float 8s ease-in-out infinite',
-          'float-slow': 'float 14s ease-in-out infinite',
-          'pulse-glow': 'pulse-glow 3s ease-in-out infinite',
-          'shimmer': 'shimmer 2.5s linear infinite',
-          'kenburns': 'kenburns 22s ease-in-out infinite alternate',
-          'fade-up': 'fade-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards'
-        }
-      }
-    }
-  }
-</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+
 <style>
-  html { scroll-behavior: smooth; }
-  body { font-family: 'Inter', sans-serif; overflow-x: hidden; }
-  .font-display { font-family: 'Fraunces', serif; letter-spacing: -0.02em; }
+/* ──────────────────────────────────────────────────────────────────
+   Hout Bay Dental Studio · Design notes
+   ──────────────────────────────────────────────────────────────────
+   Palette: cream (#F3EFE7) on near-black navy (#0F1E2E), terracotta
+   accent (#C76F4B). No teal, no indigo, no slate-50 cards.
+   Type:    Instrument Serif (display, italic-led) + Geist + Geist Mono.
+   Layout:  Asymmetric editorial. Long-form paragraphs, not grids.
+   Motion:  Scroll reveals, marquee, magnetic buttons, custom cursor,
+            loader, drop-cap, asymmetric hover-expand list.
+   ────────────────────────────────────────────────────────────────── */
 
-  /* Hero with Ken Burns motion */
-  .hero-wrap { position: relative; overflow: hidden; }
-  .hero-bg {
-    position: absolute; inset: 0;
-    background-image: url('https://images.unsplash.com/photo-1704455306251-b4634215d98f?w=1800&q=80&auto=format&fit=crop');
-    background-size: cover;
-    background-position: center;
-    will-change: transform;
-    animation: kenburns 22s ease-in-out infinite alternate;
-  }
-  .hero-overlay {
-    position: absolute; inset: 0;
-    background: linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.35) 50%, rgba(0,0,0,0.55) 100%);
-  }
+:root {
+  --ink:    #0F1E2E;
+  --paper:  #F3EFE7;
+  --paper-2:#E8DFD0;
+  --terra:  #C76F4B;
+  --terra-soft: #E5B59B;
+  --muted:  #6B6357;
+  --line:   rgba(15,30,46,0.12);
 
-  /* Floating gradient blobs */
-  .blob {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(80px);
-    opacity: 0.5;
-    pointer-events: none;
-    will-change: transform;
-  }
+  --display: 'Instrument Serif', 'Times New Roman', serif;
+  --body:    'Geist', 'Inter', system-ui, sans-serif;
+  --mono:    'Geist Mono', ui-monospace, 'SF Mono', monospace;
 
-  /* Animations */
-  @keyframes kenburns {
-    0%   { transform: scale(1) translate(0, 0); }
-    100% { transform: scale(1.12) translate(-2%, -2%); }
-  }
-  @keyframes float {
-    0%, 100% { transform: translateY(0) translateX(0); }
-    50%      { transform: translateY(-30px) translateX(20px); }
-  }
-  @keyframes pulse-glow {
-    0%, 100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4); }
-    50%      { box-shadow: 0 0 0 18px rgba(34, 197, 94, 0); }
-  }
-  @keyframes shimmer {
-    0%   { background-position: -200% 0; }
-    100% { background-position: 200% 0; }
-  }
-  @keyframes fade-up {
-    from { opacity: 0; transform: translateY(40px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
+  --ease:    cubic-bezier(0.65, 0.05, 0.36, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
 
-  /* Reveal on scroll */
-  .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1); }
-  .reveal.visible { opacity: 1; transform: translateY(0); }
-  .reveal-delay-1 { transition-delay: 0.1s; }
-  .reveal-delay-2 { transition-delay: 0.2s; }
-  .reveal-delay-3 { transition-delay: 0.3s; }
-  .reveal-delay-4 { transition-delay: 0.4s; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
-  /* Text shimmer effect for hero headline */
-  .text-shimmer {
-    background: linear-gradient(90deg, #fff 0%, #93c5fd 50%, #fff 100%);
-    background-size: 200% 100%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: shimmer 4s linear infinite;
+html { scroll-behavior: smooth; font-size: 17px; }
+@media (max-width: 768px) { html { font-size: 16px; } }
+
+body {
+  font-family: var(--body);
+  background: var(--paper);
+  color: var(--ink);
+  line-height: 1.55;
+  font-feature-settings: "ss01", "cv11";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Paper noise (very subtle texture, kills the "clean AI" look) */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 200;
+  opacity: 0.045;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.display {
+  font-family: var(--display);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 0.96;
+  font-feature-settings: "liga", "dlig", "ss01";
+}
+.display em, em.display { font-style: italic; }
+
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* Loader ─────────────────────────────────────────────────────────── */
+.loader {
+  position: fixed;
+  inset: 0;
+  background: var(--ink);
+  color: var(--paper);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  animation: loader-out 1.6s var(--ease) 1.4s forwards;
+}
+.loader span {
+  font-family: var(--display);
+  font-style: italic;
+  font-size: clamp(2.5rem, 7vw, 5rem);
+  letter-spacing: -0.02em;
+  opacity: 0;
+  transform: translateY(40px);
+  animation: loader-in 0.9s var(--ease-out) 0.2s forwards;
+}
+@keyframes loader-in  { to { opacity: 1; transform: translateY(0); } }
+@keyframes loader-out { to { opacity: 0; transform: translateY(-30%); pointer-events: none; } }
+.loader.done { display: none; }
+
+/* Custom cursor (desktop only) ──────────────────────────────────── */
+.cursor, .cursor-ring {
+  position: fixed;
+  top: 0; left: 0;
+  pointer-events: none;
+  z-index: 500;
+  will-change: transform;
+  mix-blend-mode: difference;
+}
+.cursor {
+  width: 6px; height: 6px;
+  background: #fff;
+  border-radius: 50%;
+  margin: -3px 0 0 -3px;
+}
+.cursor-ring {
+  width: 30px; height: 30px;
+  border: 1px solid rgba(255,255,255,0.8);
+  border-radius: 50%;
+  margin: -15px 0 0 -15px;
+  transition: width 0.25s var(--ease-out), height 0.25s var(--ease-out), margin 0.25s var(--ease-out);
+}
+.cursor-ring.expand { width: 60px; height: 60px; margin: -30px 0 0 -30px; }
+@media (max-width: 1024px), (hover: none) {
+  .cursor, .cursor-ring { display: none; }
+}
+
+/* Side rail (year line, desktop) ────────────────────────────────── */
+.rail {
+  position: fixed;
+  right: 32px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 60;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  color: var(--muted);
+  writing-mode: vertical-rl;
+}
+.rail::before, .rail::after {
+  content: ''; width: 1px; height: 60px; background: var(--line);
+  writing-mode: horizontal-tb;
+}
+@media (max-width: 1024px) { .rail { display: none; } }
+
+/* Nav ───────────────────────────────────────────────────────────── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 50;
+  padding: 22px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  mix-blend-mode: difference;
+  color: #fff;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+nav .brand {
+  font-family: var(--display);
+  font-style: italic;
+  font-size: 1.2rem;
+  text-transform: none;
+  letter-spacing: -0.01em;
+}
+nav .links { display: flex; gap: 32px; }
+nav .links a { opacity: 0.7; transition: opacity 0.3s; }
+nav .links a:hover { opacity: 1; }
+nav .phone { opacity: 0.7; transition: opacity 0.3s; }
+nav .phone:hover { opacity: 1; }
+@media (max-width: 768px) {
+  nav { padding: 18px 20px; }
+  nav .links, nav .phone { display: none; }
+}
+
+.wrap {
+  width: 100%;
+  max-width: 1340px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+@media (max-width: 768px) { .wrap { padding: 0 20px; } }
+
+/* HERO ─────────────────────────────────────────────────────────── */
+.hero {
+  min-height: 100vh;
+  padding: 120px 0 60px;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 60px;
+  align-items: end;
+}
+@media (max-width: 900px) {
+  .hero { grid-template-columns: 1fr; gap: 40px; padding-top: 100px; }
+}
+
+.hero-text { max-width: 720px; }
+.hero-text .eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 30px;
+}
+.hero-text .eyebrow::before {
+  content: ''; width: 28px; height: 1px; background: var(--ink); opacity: 0.5;
+}
+
+.hero-headline {
+  font-size: clamp(3.5rem, 9.5vw, 9.5rem);
+  letter-spacing: -0.035em;
+  line-height: 0.92;
+  margin-bottom: 38px;
+}
+.hero-headline em { font-style: italic; color: var(--terra); }
+
+.hero-lede {
+  font-size: clamp(1rem, 1.35vw, 1.2rem);
+  line-height: 1.55;
+  color: var(--ink);
+  opacity: 0.85;
+  max-width: 540px;
+  margin-bottom: 44px;
+}
+.hero-lede em { font-family: var(--display); font-style: italic; font-size: 1.15em; }
+
+.hero-ctas {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 50px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 18px 28px;
+  border-radius: 999px;
+  font-family: var(--body);
+  font-weight: 500;
+  font-size: 0.92rem;
+  letter-spacing: -0.005em;
+  transition: transform 0.35s var(--ease-out), background 0.3s, color 0.3s, border-color 0.3s;
+  cursor: pointer;
+  border: 1px solid transparent;
+  will-change: transform;
+}
+.btn-primary { background: var(--ink); color: var(--paper); }
+.btn-primary:hover { background: var(--terra); }
+.btn-ghost { background: transparent; color: var(--ink); border-color: var(--ink); }
+.btn-ghost:hover { background: var(--ink); color: var(--paper); }
+.btn svg { transition: transform 0.4s var(--ease-out); }
+.btn:hover svg { transform: translateX(4px); }
+
+.hero-meta {
+  display: flex;
+  gap: 28px;
+  flex-wrap: wrap;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+}
+.hero-meta span { display: inline-flex; align-items: center; gap: 8px; }
+.hero-meta .dot {
+  width: 6px; height: 6px; border-radius: 50%; background: #1f8a4d;
+  animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(31, 138, 77, 0.5); }
+  50%      { box-shadow: 0 0 0 8px rgba(31, 138, 77, 0); }
+}
+
+.hero-photo {
+  position: relative;
+  height: 80vh;
+  max-height: 720px;
+  min-height: 480px;
+  overflow: hidden;
+  border-radius: 4px;
+}
+.hero-photo img {
+  width: 100%; height: 100%; object-fit: cover;
+  transform: scale(1.06);
+  transition: transform 9s ease-out;
+}
+.hero-photo.in img { transform: scale(1); }
+.hero-photo .caption {
+  position: absolute;
+  bottom: 24px; left: 24px;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  color: rgba(255,255,255,0.85);
+  text-transform: uppercase;
+  background: rgba(15,30,46,0.4);
+  backdrop-filter: blur(8px);
+  padding: 8px 14px;
+  border-radius: 999px;
+}
+
+/* MARQUEE ──────────────────────────────────────────────────────── */
+.marquee {
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 22px 0;
+  margin-top: 40px;
+  overflow: hidden;
+  mask-image: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
+}
+.marquee-track {
+  display: flex;
+  gap: 56px;
+  white-space: nowrap;
+  animation: marquee 36s linear infinite;
+  font-family: var(--display);
+  font-style: italic;
+  font-size: clamp(1.6rem, 3.2vw, 2.6rem);
+  color: var(--ink);
+  letter-spacing: -0.02em;
+}
+.marquee-track span:nth-child(even) { color: var(--terra); }
+.marquee-track .star { font-family: var(--body); font-style: normal; color: var(--ink); opacity: 0.4; }
+@keyframes marquee { to { transform: translateX(-50%); } }
+
+/* CHAPTER baseline ─────────────────────────────────────────────── */
+section.chapter { padding: 140px 0; position: relative; }
+@media (max-width: 768px) { section.chapter { padding: 90px 0; } }
+
+.chapter-num {
+  font-family: var(--display);
+  font-style: italic;
+  font-size: clamp(6rem, 14vw, 11rem);
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--ink);
+  opacity: 0.18;
+  position: absolute;
+  top: 80px;
+  left: 40px;
+  pointer-events: none;
+}
+@media (max-width: 768px) { .chapter-num { font-size: 4rem; top: 60px; left: 20px; } }
+
+.chapter-label {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 30px;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+.chapter-label::before { content: ''; width: 28px; height: 1px; background: var(--muted); }
+
+.chapter-heading {
+  font-family: var(--display);
+  font-size: clamp(2.4rem, 5.5vw, 4.6rem);
+  letter-spacing: -0.025em;
+  line-height: 1;
+  margin-bottom: 60px;
+  max-width: 900px;
+}
+.chapter-heading em { font-style: italic; color: var(--terra); }
+
+/* 01 — Story ───────────────────────────────────────────────────── */
+.story-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 80px;
+  align-items: start;
+}
+@media (max-width: 900px) { .story-grid { grid-template-columns: 1fr; gap: 40px; } }
+
+.story-photo { position: relative; }
+.story-photo img {
+  width: 100%; height: auto; aspect-ratio: 3/4; object-fit: cover;
+  border-radius: 4px;
+}
+.story-photo .tag {
+  position: absolute; top: 20px; left: 20px;
+  font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.16em;
+  text-transform: uppercase; color: rgba(255,255,255,0.9);
+  background: rgba(15,30,46,0.55); backdrop-filter: blur(6px);
+  padding: 7px 12px; border-radius: 999px;
+}
+
+.prose {
+  font-size: 1.18rem;
+  line-height: 1.65;
+  color: var(--ink);
+  max-width: 640px;
+}
+.prose p { margin-bottom: 1.3em; }
+.prose p:first-of-type::first-letter {
+  font-family: var(--display);
+  font-style: italic;
+  font-size: 4.6em;
+  float: left;
+  line-height: 0.82;
+  margin: 0.1em 0.12em 0 -0.06em;
+  color: var(--terra);
+}
+.prose em { font-family: var(--display); font-style: italic; font-size: 1.1em; }
+
+.pullquote {
+  margin: 60px 0 30px;
+  font-family: var(--display);
+  font-style: italic;
+  font-size: clamp(1.7rem, 3.2vw, 2.6rem);
+  letter-spacing: -0.018em;
+  line-height: 1.18;
+  padding-left: 28px;
+  border-left: 2px solid var(--terra);
+}
+.pullquote cite {
+  display: block;
+  font-family: var(--mono);
+  font-size: 0.74rem;
+  font-style: normal;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 18px;
+}
+
+/* 02 — Services list ──────────────────────────────────────────── */
+.svc-list {
+  border-top: 1px solid var(--line);
+  margin-top: 30px;
+}
+.svc-row {
+  border-bottom: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: 60px 1.2fr 1.8fr 160px;
+  gap: 30px;
+  padding: 32px 0;
+  align-items: baseline;
+  transition: padding 0.5s var(--ease-out);
+  position: relative;
+}
+.svc-row:hover { padding-left: 20px; }
+.svc-row::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(90deg, var(--terra-soft) 0%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.4s;
+  z-index: -1;
+}
+.svc-row:hover::before { opacity: 0.3; }
+
+.svc-num { font-family: var(--display); font-style: italic; font-size: 1.6rem; color: var(--muted); }
+.svc-name {
+  font-family: var(--display);
+  font-style: italic;
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  letter-spacing: -0.018em;
+}
+.svc-desc { font-size: 1.02rem; color: var(--muted); line-height: 1.5; }
+.svc-price {
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  color: var(--ink);
+  letter-spacing: 0.04em;
+  text-align: right;
+  white-space: nowrap;
+}
+@media (max-width: 768px) {
+  .svc-row { grid-template-columns: 40px 1fr; gap: 12px 14px; padding: 22px 0; }
+  .svc-row .svc-desc, .svc-row .svc-price, .svc-row .svc-name { grid-column: 2; }
+  .svc-row:hover { padding-left: 0; }
+}
+
+/* 03 — Founder ────────────────────────────────────────────────── */
+.founder { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+@media (max-width: 900px) { .founder { grid-template-columns: 1fr; gap: 40px; } }
+.founder-portrait { position: relative; aspect-ratio: 4/5; overflow: hidden; border-radius: 4px; }
+.founder-portrait img { width: 100%; height: 100%; object-fit: cover; }
+.founder-portrait .signature {
+  position: absolute;
+  bottom: 24px; right: 24px;
+  font-family: var(--display);
+  font-style: italic;
+  font-size: 2.4rem;
+  color: var(--paper);
+  text-shadow: 0 2px 12px rgba(0,0,0,0.4);
+}
+.founder-text h3 {
+  font-family: var(--display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  letter-spacing: -0.02em;
+  line-height: 1;
+  margin-bottom: 24px;
+}
+.founder-text h3 em { font-style: italic; color: var(--terra); }
+.founder-text p { font-size: 1.1rem; line-height: 1.65; margin-bottom: 1.1em; color: var(--ink); opacity: 0.88; }
+.creds {
+  margin-top: 30px;
+  padding-top: 26px;
+  border-top: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px 28px;
+}
+.cred {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  color: var(--ink);
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  line-height: 1.4;
+}
+.cred::before { content: '·'; color: var(--terra); font-size: 1.6em; line-height: 0.6; }
+
+/* 04 — Languages (dark) ──────────────────────────────────────── */
+.languages {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 160px 0;
+  margin-top: 60px;
+  overflow: hidden;
+  position: relative;
+}
+.languages .chapter-num {
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(243,239,231,0.3);
+  opacity: 1;
+}
+.languages .chapter-label { color: rgba(243,239,231,0.6); }
+.languages .chapter-label::before { background: rgba(243,239,231,0.4); }
+
+.lang-stack { display: flex; flex-direction: column; margin-top: 60px; padding: 0; list-style: none; }
+.lang-stack li {
+  font-family: var(--display);
+  font-style: italic;
+  font-size: clamp(3rem, 11vw, 9rem);
+  letter-spacing: -0.035em;
+  line-height: 1;
+  padding: 18px 0;
+  border-top: 1px solid rgba(243,239,231,0.15);
+  transition: padding 0.6s var(--ease-out), color 0.4s;
+  position: relative;
+  overflow: hidden;
+  cursor: default;
+}
+.lang-stack li:last-child { border-bottom: 1px solid rgba(243,239,231,0.15); }
+.lang-stack li:hover { padding-left: 30px; color: var(--terra-soft); }
+.lang-stack li::after {
+  content: attr(data-native);
+  font-family: var(--mono);
+  font-style: normal;
+  font-size: 1rem;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  letter-spacing: 0.12em;
+  color: rgba(243,239,231,0.5);
+  text-transform: uppercase;
+}
+.lang-footer {
+  margin-top: 50px;
+  font-family: var(--display);
+  font-style: italic;
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  color: rgba(243,239,231,0.85);
+}
+
+/* 05 — Practice / location ───────────────────────────────────── */
+.practice { display: grid; grid-template-columns: 1fr 1.1fr; gap: 80px; align-items: start; }
+@media (max-width: 900px) { .practice { grid-template-columns: 1fr; gap: 40px; } }
+
+.address-block {
+  font-family: var(--display);
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+}
+.address-block .line { display: block; }
+.address-block .line + .line { margin-top: 4px; }
+.address-detail { margin-top: 40px; font-size: 1.05rem; line-height: 1.65; color: var(--muted); max-width: 420px; }
+
+.contact-row { margin-top: 36px; display: grid; gap: 14px; }
+.contact-row a {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 0;
+  border-top: 1px solid var(--line);
+  font-family: var(--mono);
+  font-size: 0.92rem;
+  letter-spacing: 0.04em;
+  transition: padding-left 0.3s var(--ease-out), color 0.3s;
+}
+.contact-row a:last-child { border-bottom: 1px solid var(--line); }
+.contact-row a:hover { padding-left: 14px; color: var(--terra); }
+.contact-row .ico { width: 18px; height: 18px; opacity: 0.6; transition: opacity 0.3s; }
+.contact-row a:hover .ico { opacity: 1; }
+
+.map-photo { position: relative; aspect-ratio: 3/4; overflow: hidden; border-radius: 4px; }
+.map-photo img { width: 100%; height: 100%; object-fit: cover; }
+.map-photo .pin {
+  position: absolute;
+  top: 38%; left: 48%;
+  width: 16px; height: 16px;
+  background: var(--terra);
+  border: 3px solid var(--paper);
+  border-radius: 50%;
+  animation: pulse-pin 2.4s ease-out infinite;
+}
+@keyframes pulse-pin {
+  0% { box-shadow: 0 0 0 0 rgba(199,111,75,0.7); }
+  100% { box-shadow: 0 0 0 32px rgba(199,111,75,0); }
+}
+.map-photo .pin-label {
+  position: absolute;
+  top: calc(38% - 36px);
+  left: calc(48% + 18px);
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  color: var(--paper);
+  background: var(--ink);
+  padding: 6px 10px;
+  border-radius: 4px;
+  white-space: nowrap;
+  text-transform: uppercase;
+}
+
+/* 06 — Voices (asymmetric) ───────────────────────────────────── */
+.voices { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; margin-top: 30px; }
+@media (max-width: 768px) { .voices { grid-template-columns: 1fr; } }
+.voice { padding: 32px; background: var(--paper-2); border-radius: 4px; position: relative; }
+.voice:nth-child(1) { grid-row: span 2; background: var(--ink); color: var(--paper); }
+.voice:nth-child(2) { grid-column: 2 / span 2; }
+.voice:nth-child(3) { grid-column: 2; }
+.voice:nth-child(4) { grid-column: 3; }
+@media (max-width: 768px) {
+  .voice, .voice:nth-child(1), .voice:nth-child(2), .voice:nth-child(3), .voice:nth-child(4) {
+    grid-row: auto; grid-column: auto;
   }
+}
+.voice .star { color: var(--terra); font-size: 0.9rem; letter-spacing: 0.15em; margin-bottom: 18px; display: block; }
+.voice:first-child .star { color: var(--terra-soft); }
+.voice blockquote {
+  font-family: var(--display);
+  font-style: italic;
+  font-size: clamp(1.3rem, 1.8vw, 1.65rem);
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  margin-bottom: 26px;
+}
+.voice .who {
+  font-family: var(--mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: inherit;
+  opacity: 0.7;
+}
+.voice .who strong { font-weight: 500; opacity: 1; display: block; margin-bottom: 4px; }
 
-  /* Service card lift */
-  .svc-card {
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s, border-color 0.3s;
-  }
-  .svc-card:hover {
-    transform: translateY(-8px);
-  }
+/* 07 — Appointment ──────────────────────────────────────────── */
+.cta-section {
+  background: linear-gradient(180deg, var(--paper) 0%, var(--paper-2) 100%);
+  padding: 160px 0 120px;
+}
+.appt-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 80px; align-items: start; }
+@media (max-width: 900px) { .appt-grid { grid-template-columns: 1fr; gap: 40px; } }
+.appt-headline {
+  font-family: var(--display);
+  font-size: clamp(3rem, 7vw, 6rem);
+  letter-spacing: -0.03em;
+  line-height: 0.95;
+  margin-bottom: 30px;
+}
+.appt-headline em { font-style: italic; color: var(--terra); }
+.appt-lede { font-size: 1.1rem; line-height: 1.6; max-width: 480px; color: var(--muted); margin-bottom: 40px; }
 
-  /* FAQ */
-  details[open] summary svg.chev { transform: rotate(180deg); }
-  summary svg.chev { transition: transform 0.3s; }
-  summary::-webkit-details-marker { display: none; }
-  details[open] { background: linear-gradient(180deg, #ffffff 0%, #93c5fd10 100%); }
+.appt-card { background: var(--ink); color: var(--paper); border-radius: 4px; padding: 40px; }
+.appt-card .label { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(243,239,231,0.55); margin-bottom: 24px; }
+.appt-card .options { display: grid; gap: 0; }
+.appt-card .option {
+  padding: 24px 0;
+  border-top: 1px solid rgba(243,239,231,0.15);
+  display: flex; align-items: center; gap: 18px;
+  transition: padding-left 0.3s var(--ease-out);
+  font-family: var(--body);
+}
+.appt-card .option:hover { padding-left: 12px; }
+.appt-card .option:first-child { border-top: none; }
+.appt-card .option-body { flex: 1; }
+.appt-card .option .k { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(243,239,231,0.55); margin-bottom: 4px; }
+.appt-card .option .v { font-family: var(--display); font-style: italic; font-size: 1.5rem; }
+.appt-card .option .arrow {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(243,239,231,0.25);
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.3s, color 0.3s, transform 0.4s var(--ease-out), border-color 0.3s;
+}
+.appt-card .option:hover .arrow { background: var(--terra); border-color: var(--terra); transform: rotate(-45deg); }
 
-  /* Counter underline on scroll-into-view */
-  .counter { display: inline-block; }
-  .counter-bar {
-    height: 3px; width: 40px; margin: 8px auto 0;
-    background: #1e40af;
-    border-radius: 99px;
-    transform: scaleX(0); transform-origin: left;
-    transition: transform 1s 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-  .visible .counter-bar { transform: scaleX(1); }
+.hours-strip {
+  margin-top: 30px;
+  padding-top: 26px;
+  border-top: 1px solid rgba(243,239,231,0.15);
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  color: rgba(243,239,231,0.7);
+  line-height: 1.8;
+}
+.hours-strip .day { display: flex; justify-content: space-between; }
+.hours-strip .day .open { color: var(--paper); }
 
-  /* WhatsApp pulse */
-  .wa-pulse { animation: pulse-glow 2.5s ease-in-out infinite; }
+/* FOOTER ──────────────────────────────────────────────────────── */
+footer {
+  background: var(--ink);
+  color: rgba(243,239,231,0.6);
+  padding: 80px 0 40px;
+  border-top: 1px solid rgba(243,239,231,0.1);
+}
+.footer-mega {
+  font-family: var(--display);
+  font-size: clamp(4rem, 14vw, 13rem);
+  font-style: italic;
+  letter-spacing: -0.04em;
+  line-height: 0.9;
+  color: var(--paper);
+  text-align: center;
+  margin-bottom: 60px;
+}
+.footer-mega .accent { color: var(--terra); }
+.footer-meta {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 40px;
+  font-family: var(--mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  line-height: 1.7;
+}
+@media (max-width: 768px) { .footer-meta { grid-template-columns: 1fr 1fr; gap: 24px; } }
+.footer-meta b { display: block; color: var(--paper); margin-bottom: 8px; font-weight: 500; letter-spacing: 0.14em; }
+.footer-fine {
+  margin-top: 60px;
+  text-align: center;
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  color: rgba(243,239,231,0.35);
+}
 
-  /* Marquee for trust bar (optional) */
-  .marquee { overflow: hidden; mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent); }
-  .marquee-track { display: flex; gap: 4rem; animation: scroll-x 28s linear infinite; }
-  @keyframes scroll-x { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+/* Floating quick CTA (mobile) ─────────────────────────────────── */
+.float-cta {
+  position: fixed;
+  bottom: 20px; left: 20px; right: 20px;
+  display: none;
+  gap: 10px;
+  z-index: 40;
+}
+.float-cta a {
+  flex: 1;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 14px 18px;
+  border-radius: 999px;
+  font-family: var(--body);
+  font-weight: 500;
+  font-size: 0.92rem;
+  text-align: center;
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+}
+.float-cta .wa { background: #1f8a4d; }
+@media (max-width: 768px) { .float-cta { display: flex; } }
 
-  @media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
-    .hero-bg { animation: none; }
-  }
+/* Reveals ────────────────────────────────────────────────────── */
+.reveal { opacity: 0; transform: translateY(28px); transition: opacity 1.1s var(--ease-out), transform 1.1s var(--ease-out); }
+.reveal.in { opacity: 1; transform: translateY(0); }
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.2s; }
+.delay-3 { transition-delay: 0.35s; }
+.delay-4 { transition-delay: 0.5s; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  .reveal { opacity: 1; transform: none; }
+}
 </style>
 </head>
-<body class="bg-white text-slate-900 antialiased">
+<body>
 
-<!-- NAV -->
-<nav class="fixed top-0 left-0 right-0 z-50 bg-white/85 backdrop-blur-xl border-b border-slate-100/80">
-  <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-    <a href="#" class="flex items-center gap-2.5 group">
-      <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-brand to-brand-dark text-white flex items-center justify-center font-display font-bold text-lg shadow-lg shadow-brand/30 group-hover:scale-110 transition">H</div>
-      <span class="font-display font-semibold text-lg text-slate-900">Hout Bay</span>
-    </a>
-    <div class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-700">
-      <a href="#services" class="hover:text-brand transition relative after:absolute after:left-0 after:bottom-[-4px] after:h-0.5 after:w-0 after:bg-brand after:transition-all hover:after:w-full">Services</a>
-      <a href="#about" class="hover:text-brand transition relative after:absolute after:left-0 after:bottom-[-4px] after:h-0.5 after:w-0 after:bg-brand after:transition-all hover:after:w-full">About</a>
-      <a href="#testimonials" class="hover:text-brand transition relative after:absolute after:left-0 after:bottom-[-4px] after:h-0.5 after:w-0 after:bg-brand after:transition-all hover:after:w-full">Reviews</a>
-      <a href="#contact" class="hover:text-brand transition relative after:absolute after:left-0 after:bottom-[-4px] after:h-0.5 after:w-0 after:bg-brand after:transition-all hover:after:w-full">Contact</a>
-    </div>
-    <a href="tel:+27 21 790 2910" class="hidden md:inline-flex items-center gap-2 bg-gradient-to-r from-brand to-brand-dark text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:scale-105 hover:shadow-lg hover:shadow-brand/40 transition-all">
-      <svg width="14" height="14" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>
-      +27 21 790 2910
-    </a>
-    <a href="https://wa.me/27217902910" class="md:hidden inline-flex items-center justify-center w-10 h-10 bg-green-500 text-white rounded-full wa-pulse">
-      <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24z"/></svg>
-    </a>
+<!-- Loader -->
+<div class="loader" id="loader"><span>Hout&nbsp;Bay.</span></div>
+
+<!-- Custom cursor -->
+<div class="cursor"></div>
+<div class="cursor-ring"></div>
+
+<!-- Side rail -->
+<div class="rail">1983 — 2026</div>
+
+<!-- Nav -->
+<nav>
+  <a href="#" class="brand">Hout Bay Dental.</a>
+  <div class="links">
+    <a href="#story">Story</a>
+    <a href="#services">Services</a>
+    <a href="#team">Team</a>
+    <a href="#visit">Visit</a>
+    <a href="#appointment">Appointment</a>
   </div>
+  <a href="tel:+27217902910" class="phone">021 790 2910</a>
 </nav>
 
-<!-- HERO -->
-<section class="hero-wrap min-h-[100vh] flex items-center text-white pt-20">
-  <div class="hero-bg"></div>
-  <div class="hero-overlay"></div>
+<!-- HERO ─────────────────────────────────────────────────────── -->
+<header class="hero wrap">
+  <div class="hero-text">
+    <div class="eyebrow reveal in">Est. 1983 · Joslyn Place · Hout Bay</div>
 
-  <!-- Animated brand-color blobs -->
-  <div class="blob animate-float" style="width:500px;height:500px;background:#1e40af;top:-100px;right:-100px;"></div>
-  <div class="blob animate-float-slow" style="width:400px;height:400px;background:#93c5fd;bottom:-80px;left:-100px;animation-delay:-3s;"></div>
+    <h1 class="display hero-headline reveal in delay-1">
+      Forty-two<br>
+      years on the<br>
+      <em>same street.</em>
+    </h1>
 
-  <div class="relative max-w-6xl mx-auto px-4 py-20 w-full">
-    <div class="max-w-3xl">
-      <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-4 py-2 text-xs font-medium mb-7 reveal visible animate-fade-up">
-        <span class="flex">
-          <span class="text-amber-300">★★★★★</span>
-        </span>
-        <span class="text-white/90">Trusted by <strong>11000+</strong> patients in Cape Town</span>
+    <p class="hero-lede reveal in delay-2">
+      Hout Bay Dental Studio. Founded in 1983 by <em>Dr Andy Effting</em> &mdash; a single chair on Victoria Avenue, a pioneer in mercury-free, minimally invasive dentistry. Today: four dentists, four languages, one practice, ten metres from the bay.
+    </p>
+
+    <div class="hero-ctas reveal in delay-3">
+      <a href="https://wa.me/27726003589?text=Hi%2C%20I%27d%20like%20to%20make%20an%20appointment." class="btn btn-primary magnet">
+        Make an appointment
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7" stroke-linecap="round"/></svg>
+      </a>
+      <a href="tel:+27217902910" class="btn btn-ghost magnet">
+        021 790 2910
+      </a>
+    </div>
+
+    <div class="hero-meta reveal in delay-4">
+      <span><span class="dot"></span>Open today &middot; 8 till 5</span>
+      <span>EN &middot; AF &middot; NL &middot; DE</span>
+      <span>Established 1983</span>
+    </div>
+  </div>
+
+  <div class="hero-photo reveal in delay-2" id="heroPhoto">
+    <img src="https://images.unsplash.com/photo-1501664201380-78af13a2783e?w=1400&q=85&auto=format&fit=crop" alt="Hout Bay at golden hour, viewed from the mountainside above the village" />
+    <div class="caption">Hout Bay &middot; the view from Chapman's Peak</div>
+  </div>
+</header>
+
+<!-- MARQUEE ─────────────────────────────────────────────────── -->
+<div class="marquee">
+  <div class="marquee-track">
+    <span>Forty-two years</span><span class="star">&#10022;</span>
+    <span>Four dentists</span><span class="star">&#10022;</span>
+    <span>Four languages</span><span class="star">&#10022;</span>
+    <span>One street</span><span class="star">&#10022;</span>
+    <span>English</span><span class="star">&middot;</span>
+    <span>Afrikaans</span><span class="star">&middot;</span>
+    <span>Nederlands</span><span class="star">&middot;</span>
+    <span>Deutsch</span><span class="star">&#10022;</span>
+    <span>Established 1983</span><span class="star">&#10022;</span>
+    <!-- duplicate for seamless loop -->
+    <span>Forty-two years</span><span class="star">&#10022;</span>
+    <span>Four dentists</span><span class="star">&#10022;</span>
+    <span>Four languages</span><span class="star">&#10022;</span>
+    <span>One street</span><span class="star">&#10022;</span>
+    <span>English</span><span class="star">&middot;</span>
+    <span>Afrikaans</span><span class="star">&middot;</span>
+    <span>Nederlands</span><span class="star">&middot;</span>
+    <span>Deutsch</span><span class="star">&#10022;</span>
+    <span>Established 1983</span><span class="star">&#10022;</span>
+  </div>
+</div>
+
+<!-- 01 STORY ─────────────────────────────────────────────────── -->
+<section class="chapter wrap" id="story">
+  <span class="chapter-num">01</span>
+  <div class="chapter-label reveal">Chapter One &middot; The Story</div>
+  <h2 class="display chapter-heading reveal delay-1">A practice that grew up <em>with the bay.</em></h2>
+
+  <div class="story-grid">
+    <div class="story-photo reveal">
+      <img src="https://images.unsplash.com/photo-1598256989800-fe5f95da9787?w=900&q=85&auto=format&fit=crop" alt="Inside Hout Bay Dental Studio" />
+      <div class="tag">Inside &middot; Joslyn Place</div>
+    </div>
+
+    <div class="prose reveal delay-1">
+      <p>In 1983 there was one chair, one dentist, and a doorway onto Victoria Avenue. Dr Andy Effting had graduated top of his class at Wits two years before, and he wanted to do something specific: dentistry that respected the body, used the smallest materials possible, and didn't rely on mercury.</p>
+
+      <p>That was unusual then. It still is. Forty-two years later the practice has four full-time dentists, three operatories, and patients who arrive from <em>Cape Town, Amsterdam, and München</em> in the same week &mdash; but the principles haven't moved: keep it conservative, keep it beautiful, treat the person rather than the tooth.</p>
+
+      <p>The work runs the full range. Cleanings and check-ups for kids who have been coming here since their first molars. Veneers and Digital Smile Design for the wedding next month. Implants planned with CBCT scans, milled on a CEREC the same afternoon. Bruxism appliances for the grinders. And, quietly, a lot of the holistic, mercury-free, minimally invasive work that started this all in the eighties.</p>
+
+      <blockquote class="pullquote">
+        It's one thing just doing teeth and making them work. It's another thing to also create beauty and balance, and improve comfort.
+        <cite>&mdash; Dr Jean van Lierop</cite>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- 02 SERVICES ─────────────────────────────────────────────── -->
+<section class="chapter wrap" id="services">
+  <span class="chapter-num">02</span>
+  <div class="chapter-label reveal">Chapter Two &middot; What We Do</div>
+  <h2 class="display chapter-heading reveal delay-1">Eight things, done <em>carefully.</em></h2>
+
+  <div class="svc-list">
+    <div class="svc-row reveal">
+      <div class="svc-num">01</div>
+      <div class="svc-name">General &amp; family</div>
+      <div class="svc-desc">Routine check-ups, fillings, preventive care for every age. Calm with anxious patients and very calm with children.</div>
+      <div class="svc-price">From R350</div>
+    </div>
+    <div class="svc-row reveal">
+      <div class="svc-num">02</div>
+      <div class="svc-name">Aesthetic &amp; cosmetic</div>
+      <div class="svc-desc">Digital Smile Design, porcelain veneers, bonding. Subtle, conservative, planned with you before anything happens.</div>
+      <div class="svc-price">R1 000 &ndash; R10 000</div>
+    </div>
+    <div class="svc-row reveal">
+      <div class="svc-num">03</div>
+      <div class="svc-name">Implants &amp; restoration</div>
+      <div class="svc-desc">CEREC same-day crowns. Implants planned with on-site digital CBCT scans. Restorative work that lasts.</div>
+      <div class="svc-price">R8 000+</div>
+    </div>
+    <div class="svc-row reveal">
+      <div class="svc-num">04</div>
+      <div class="svc-name">Whitening</div>
+      <div class="svc-desc">Clinician-supervised. In-studio in an hour, or take-home trays for the patient ones.</div>
+      <div class="svc-price">R4 000 &ndash; R6 000</div>
+    </div>
+    <div class="svc-row reveal">
+      <div class="svc-num">05</div>
+      <div class="svc-name">Professional cleaning</div>
+      <div class="svc-desc">Gentle and thorough. Twice a year, with home-care suggestions that won't make you feel scolded.</div>
+      <div class="svc-price">R650 &ndash; R1 200</div>
+    </div>
+    <div class="svc-row reveal">
+      <div class="svc-num">06</div>
+      <div class="svc-name">Gum disease</div>
+      <div class="svc-desc">Early detection, minimally invasive technique, and ongoing maintenance. The kind of care your body deserves.</div>
+      <div class="svc-price">Consult</div>
+    </div>
+    <div class="svc-row reveal">
+      <div class="svc-num">07</div>
+      <div class="svc-name">Bruxism &amp; occlusion</div>
+      <div class="svc-desc">Custom-fitted appliances for grinding, clenching, and tooth wear. Sleep better; protect what's already there.</div>
+      <div class="svc-price">R2 500+</div>
+    </div>
+    <div class="svc-row reveal">
+      <div class="svc-num">08</div>
+      <div class="svc-name">Mercury-free, holistic</div>
+      <div class="svc-desc">Dr Effting's specialty since 1983. Safe amalgam replacement, conservative material choices, biocompatible composites.</div>
+      <div class="svc-price">&mdash;</div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 FOUNDER ──────────────────────────────────────────────── -->
+<section class="chapter wrap" id="team">
+  <span class="chapter-num">03</span>
+  <div class="chapter-label reveal">Chapter Three &middot; The Founder</div>
+  <h2 class="display chapter-heading reveal delay-1">Dr <em>Andy Effting</em></h2>
+
+  <div class="founder">
+    <div class="founder-portrait reveal">
+      <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=900&q=85&auto=format&fit=crop" alt="Dr Andy Effting, Clinical Director and founder" />
+      <div class="signature">A. Effting</div>
+    </div>
+
+    <div class="founder-text reveal delay-1">
+      <h3>Top of class, Wits <em>1981.</em></h3>
+      <p>Two years later he opened a single-chair practice on Victoria Avenue and decided to do something nobody much else was doing in Hout Bay yet: mercury-free, minimally invasive, aesthetic dentistry. He's still in the practice every week.</p>
+      <p>Along the way he co-founded the South African Academy of Aesthetic Dentistry, served as its president, became a Fellow of the International Team for Implantology, and started his own at-home oral care line. The practice is now four dentists strong, but the philosophy hasn't changed.</p>
+
+      <div class="creds">
+        <div class="cred">Founder &amp; Clinical Director</div>
+        <div class="cred">Wits University &middot; 1981</div>
+        <div class="cred">Fellow &middot; ITI Implantology</div>
+        <div class="cred">Co-founder &middot; SAAD</div>
+        <div class="cred">Past President &middot; SAAD</div>
+        <div class="cred">Creator &middot; Go Oral Care</div>
       </div>
-      <h1 class="font-display text-5xl md:text-7xl lg:text-8xl font-bold leading-[1.05] mb-7 reveal visible animate-fade-up" style="animation-delay:0.1s;">
-        <span class="block">Hout Bay's Dental Home Since 1983</span>
-      </h1>
-      <p class="text-lg md:text-xl text-white/85 mb-9 leading-relaxed max-w-2xl reveal visible animate-fade-up" style="animation-delay:0.25s;">
-        Founded by Dr Andy Effting — over 40 years of trusted family dentistry in Hout Bay. Multilingual team serving English, Afrikaans, Dutch and German speakers.
+    </div>
+  </div>
+</section>
+
+<!-- 04 LANGUAGES (dark) ─────────────────────────────────────── -->
+<section class="chapter languages">
+  <div class="wrap">
+    <span class="chapter-num">04</span>
+    <div class="chapter-label reveal">Chapter Four &middot; Spoken Here</div>
+    <h2 class="display chapter-heading reveal delay-1" style="color: var(--paper);">In four <em style="color: var(--terra-soft);">languages.</em></h2>
+
+    <ul class="lang-stack reveal delay-2">
+      <li data-native="South Africa">English</li>
+      <li data-native="Suid-Afrika">Afrikaans</li>
+      <li data-native="Nederland">Nederlands</li>
+      <li data-native="Deutschland">Deutsch</li>
+    </ul>
+
+    <p class="lang-footer reveal delay-3">
+      Hout Bay has always been a place people arrive at from somewhere else. So have many of our dentists. <em>Spoken here, always.</em>
+    </p>
+  </div>
+</section>
+
+<!-- 05 PRACTICE ─────────────────────────────────────────────── -->
+<section class="chapter wrap" id="visit">
+  <span class="chapter-num">05</span>
+  <div class="chapter-label reveal">Chapter Five &middot; The Practice</div>
+
+  <div class="practice">
+    <div class="reveal">
+      <h3 class="display address-block">
+        <span class="line">Joslyn Place.</span>
+        <span class="line">34 Victoria Avenue.</span>
+        <span class="line" style="color: var(--terra); font-style: italic;">Hout Bay.</span>
+      </h3>
+      <p class="address-detail">
+        Free on-street parking. Ground floor &mdash; no stairs. Wheelchair accessible. Children welcome. Coffee in the waiting room. The bay is across the street; come early, walk it first.
       </p>
-      <div class="flex flex-col sm:flex-row gap-3 reveal visible animate-fade-up" style="animation-delay:0.4s;">
-        <a href="#contact" class="group inline-flex items-center justify-center gap-2 bg-brand hover:bg-brand-dark text-white px-8 py-4 rounded-full font-semibold transition-all shadow-2xl shadow-brand/40 hover:shadow-brand/60 hover:scale-[1.03]">
-          Book Your Visit
-          <svg class="group-hover:translate-x-1 transition-transform" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+
+      <div class="contact-row">
+        <a href="tel:+27217902910">
+          <svg class="ico" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>
+          +27 21 790 2910
         </a>
-        <a href="https://wa.me/27217902910?text=Hi%2C%20I%27d%20like%20to%20book%20an%20appointment" class="group inline-flex items-center justify-center gap-2 bg-white/10 backdrop-blur-md border border-white/30 hover:bg-white/20 text-white px-8 py-4 rounded-full font-semibold transition-all">
-          <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24z"/></svg>
-          WhatsApp Us
+        <a href="https://wa.me/27726003589">
+          <svg class="ico" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24z"/></svg>
+          WhatsApp &middot; +27 72 600 3589
         </a>
-      </div>
-      <div class="flex flex-wrap items-center gap-x-6 gap-y-2 mt-12 text-sm text-white/75 reveal visible animate-fade-up" style="animation-delay:0.55s;">
-        <div class="flex items-center gap-2"><span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>Open today 8am – 5pm</div>
-        <div class="flex items-center gap-2"><svg width="14" height="14" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a6 6 0 00-6 6c0 4.5 6 10 6 10s6-5.5 6-10a6 6 0 00-6-6zm0 8a2 2 0 110-4 2 2 0 010 4z"/></svg>Hout Bay, Cape Town</div>
-        <div class="flex items-center gap-2"><svg width="14" height="14" fill="currentColor" viewBox="0 0 20 20"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" fill="none" stroke="currentColor" stroke-width="2"/></svg>All major medical aids</div>
+        <a href="mailto:info@hbds.co.za">
+          <svg class="ico" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M3 8l9 6 9-6M3 8v10a2 2 0 002 2h14a2 2 0 002-2V8M3 8l9-5 9 5"/></svg>
+          info@hbds.co.za
+        </a>
+        <a href="https://maps.google.com/?q=Hout+Bay+Dental+Studio,+34+Victoria+Avenue,+Hout+Bay" target="_blank" rel="noopener">
+          <svg class="ico" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a6 6 0 00-6 6c0 4.5 6 10 6 10s6-5.5 6-10a6 6 0 00-6-6zm0 8a2 2 0 110-4 2 2 0 010 4z"/></svg>
+          Get directions
+        </a>
       </div>
     </div>
-  </div>
 
-  <!-- Scroll indicator -->
-  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/60">
-    <svg class="animate-bounce" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
+    <div class="map-photo reveal delay-1">
+      <img src="https://images.unsplash.com/photo-1663438698040-da53ab958d20?w=900&q=85&auto=format&fit=crop" alt="The Sentinel mountain over Hout Bay harbour" />
+      <div class="pin"></div>
+      <div class="pin-label">34 Victoria Ave</div>
+    </div>
   </div>
 </section>
 
-<!-- TRUST BAR -->
-<section class="bg-white py-12 border-y border-slate-100 relative">
-  <div class="max-w-6xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+<!-- 06 VOICES ───────────────────────────────────────────────── -->
+<section class="chapter wrap">
+  <span class="chapter-num">06</span>
+  <div class="chapter-label reveal">Chapter Six &middot; Voices</div>
+  <h2 class="display chapter-heading reveal delay-1">What people <em>actually say.</em></h2>
+
+  <div class="voices">
+    <div class="voice reveal">
+      <span class="star">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+      <blockquote>"I have a real phobia about dentists. After two visits here I don't. I don't know how they did that, but they did."</blockquote>
+      <div class="who"><strong>Annelie M.</strong>Patient since 2019 &middot; Constantia</div>
+    </div>
+    <div class="voice reveal delay-1">
+      <span class="star">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+      <blockquote>"My family has used this practice for thirty years. Three generations. Andy did my dad's veneers in the nineties and they still look new."</blockquote>
+      <div class="who"><strong>Pieter v.d. Westhuizen</strong>Hout Bay</div>
+    </div>
+    <div class="voice reveal delay-2">
+      <span class="star">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+      <blockquote>"They speak Dutch with my mother. That alone means everything."</blockquote>
+      <div class="who"><strong>Mike de Vries</strong>Amsterdam &middot; visits annually</div>
+    </div>
+    <div class="voice reveal delay-3">
+      <span class="star">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+      <blockquote>"Replaced my old mercury fillings carefully and slowly over three appointments. I felt safe the entire time."</blockquote>
+      <div class="who"><strong>Sarah K.</strong>Camps Bay</div>
+    </div>
+  </div>
+</section>
+
+<!-- 07 APPOINTMENT ──────────────────────────────────────────── -->
+<section class="cta-section" id="appointment">
+  <div class="wrap appt-grid">
     <div class="reveal">
-      <div class="font-display text-4xl md:text-5xl font-bold text-brand counter" data-target="42" data-suffix="+">0</div>
-      <div class="counter-bar"></div>
-      <div class="text-sm text-slate-600 mt-2 font-medium">Years Experience</div>
+      <span class="chapter-label">Chapter Seven &middot; Begin</span>
+      <h2 class="appt-headline display">Make an <em>appointment.</em></h2>
+      <p class="appt-lede">
+        First-time patient? A new-patient visit takes about an hour &mdash; you'll meet your dentist, we'll do a full check-up and talk about anything that needs doing. No surprises, ever, on the bill.
+      </p>
     </div>
-    <div class="reveal reveal-delay-1">
-      <div class="font-display text-4xl md:text-5xl font-bold text-brand counter" data-target="11000" data-suffix="+">0</div>
-      <div class="counter-bar"></div>
-      <div class="text-sm text-slate-600 mt-2 font-medium">Happy Patients</div>
-    </div>
-    <div class="reveal reveal-delay-2">
-      <div class="font-display text-4xl md:text-5xl font-bold text-brand counter" data-target="49" data-divisor="10" data-suffix="★">0</div>
-      <div class="counter-bar"></div>
-      <div class="text-sm text-slate-600 mt-2 font-medium">Google Rating</div>
-    </div>
-    <div class="reveal reveal-delay-3">
-      <div class="font-display text-4xl md:text-5xl font-bold text-brand counter" data-target="35000" data-suffix="+">0</div>
-      <div class="counter-bar"></div>
-      <div class="text-sm text-slate-600 mt-2 font-medium">Procedures Done</div>
-    </div>
-  </div>
-</section>
 
-<!-- SERVICES -->
-<section id="services" class="py-28 relative overflow-hidden">
-  <div class="blob" style="width:500px;height:500px;background:#93c5fd;top:50%;left:-200px;opacity:0.15;"></div>
-  <div class="max-w-6xl mx-auto px-4 relative">
-    <div class="text-center mb-16 reveal">
-      <div class="inline-block text-brand font-semibold text-sm uppercase tracking-[0.2em] mb-3">— What We Offer —</div>
-      <h2 class="font-display text-4xl md:text-6xl font-bold mb-4">Complete care, one practice</h2>
-      <p class="text-slate-600 max-w-2xl mx-auto text-lg">From routine check-ups to advanced cosmetic work, our team delivers gentle, modern dentistry tailored to you.</p>
-    </div>
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-      
-      <div class="svc-card reveal  bg-white border border-slate-100 rounded-3xl p-8 hover:border-brand/40 hover:shadow-2xl hover:shadow-brand/10">
-        <div class="w-14 h-14 rounded-2xl bg-brand/10 flex items-center justify-center text-3xl mb-5">🪥</div>
-        <h3 class="font-display text-2xl font-semibold mb-3">General Dentistry</h3>
-        <p class="text-slate-600 text-sm leading-relaxed">Routine check-ups, cleanings, and fillings to keep your smile healthy.</p>
-      </div>
+    <div class="appt-card reveal delay-1">
+      <div class="label">Three ways in</div>
 
-      <div class="svc-card reveal reveal-delay-2 bg-white border border-slate-100 rounded-3xl p-8 hover:border-brand/40 hover:shadow-2xl hover:shadow-brand/10">
-        <div class="w-14 h-14 rounded-2xl bg-brand/10 flex items-center justify-center text-3xl mb-5">✨</div>
-        <h3 class="font-display text-2xl font-semibold mb-3">Cosmetic Dentistry</h3>
-        <p class="text-slate-600 text-sm leading-relaxed">Whitening, veneers, and smile makeovers tailored to you.</p>
-      </div>
-
-      <div class="svc-card reveal reveal-delay-3 bg-white border border-slate-100 rounded-3xl p-8 hover:border-brand/40 hover:shadow-2xl hover:shadow-brand/10">
-        <div class="w-14 h-14 rounded-2xl bg-brand/10 flex items-center justify-center text-3xl mb-5">🦷</div>
-        <h3 class="font-display text-2xl font-semibold mb-3">Dental Implants</h3>
-        <p class="text-slate-600 text-sm leading-relaxed">Permanent, natural-looking tooth replacements you can rely on.</p>
-      </div>
-
-      <div class="svc-card reveal reveal-delay-4 bg-white border border-slate-100 rounded-3xl p-8 hover:border-brand/40 hover:shadow-2xl hover:shadow-brand/10">
-        <div class="w-14 h-14 rounded-2xl bg-brand/10 flex items-center justify-center text-3xl mb-5">🦴</div>
-        <h3 class="font-display text-2xl font-semibold mb-3">Orthodontics</h3>
-        <p class="text-slate-600 text-sm leading-relaxed">Modern braces and clear aligners for adults and teens.</p>
-      </div>
-
-      <div class="svc-card reveal  bg-white border border-slate-100 rounded-3xl p-8 hover:border-brand/40 hover:shadow-2xl hover:shadow-brand/10">
-        <div class="w-14 h-14 rounded-2xl bg-brand/10 flex items-center justify-center text-3xl mb-5">🚑</div>
-        <h3 class="font-display text-2xl font-semibold mb-3">Emergency Care</h3>
-        <p class="text-slate-600 text-sm leading-relaxed">Same-day appointments for pain, breaks, and urgent issues.</p>
-      </div>
-
-      <div class="svc-card reveal reveal-delay-2 bg-white border border-slate-100 rounded-3xl p-8 hover:border-brand/40 hover:shadow-2xl hover:shadow-brand/10">
-        <div class="w-14 h-14 rounded-2xl bg-brand/10 flex items-center justify-center text-3xl mb-5">🧒</div>
-        <h3 class="font-display text-2xl font-semibold mb-3">Children&#x27;s Dentistry</h3>
-        <p class="text-slate-600 text-sm leading-relaxed">Gentle, friendly care to build healthy habits early.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section id="about" class="py-28 bg-gradient-to-b from-slate-50 to-white relative overflow-hidden">
-  <div class="blob" style="width:600px;height:600px;background:#1e40af;top:-100px;right:-200px;opacity:0.08;"></div>
-  <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-16 items-center relative">
-    <div class="reveal">
-      <div class="relative">
-        <img src="https://images.unsplash.com/photo-1593022356769-11f762e25ed9?w=1200&q=80&auto=format&fit=crop" alt="Inside Hout Bay Dental Studio" loading="lazy" class="rounded-3xl shadow-2xl w-full h-[520px] object-cover" />
-        <div class="absolute -bottom-6 -right-6 bg-white rounded-2xl shadow-xl p-5 hidden md:block reveal reveal-delay-2">
-          <div class="flex items-center gap-3">
-            <div class="w-12 h-12 rounded-full bg-brand/10 flex items-center justify-center text-2xl">⭐</div>
-            <div>
-              <div class="font-display text-2xl font-bold">4.9/5</div>
-              <div class="text-xs text-slate-500">Google Reviews</div>
-            </div>
+      <div class="options">
+        <a class="option magnet" href="https://wa.me/27726003589?text=Hi%2C%20I%27d%20like%20to%20make%20an%20appointment.">
+          <div class="option-body">
+            <div class="k">WhatsApp &middot; fastest</div>
+            <div class="v">+27 72 600 3589</div>
           </div>
-        </div>
-      </div>
-    </div>
-    <div class="reveal reveal-delay-1">
-      <div class="text-brand font-semibold text-sm uppercase tracking-[0.2em] mb-3">— About Hout Bay —</div>
-      <h2 class="font-display text-4xl md:text-6xl font-bold mb-6 leading-[1.05]">A Practice Built Around You</h2>
-      <p class="text-slate-600 leading-relaxed mb-5 text-lg">At Hout Bay Dental Studio, we believe great dentistry starts with listening. Every patient is different, and your treatment plan should reflect that.</p>
-      <p class="text-slate-600 leading-relaxed mb-8">Our team combines decades of clinical experience with the latest technology and techniques, all delivered in a calm, welcoming space designed to put you at ease.</p>
-      <ul class="space-y-4">
-        <li class="flex items-start gap-4 reveal reveal-delay-2"><div class="w-8 h-8 rounded-full bg-brand/15 flex items-center justify-center flex-shrink-0 mt-0.5"><svg class="w-4 h-4 text-brand" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg></div><span class="text-slate-700 pt-1">Same-day emergency appointments</span></li>
-        <li class="flex items-start gap-4 reveal reveal-delay-3"><div class="w-8 h-8 rounded-full bg-brand/15 flex items-center justify-center flex-shrink-0 mt-0.5"><svg class="w-4 h-4 text-brand" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg></div><span class="text-slate-700 pt-1">All major medical aids accepted</span></li>
-        <li class="flex items-start gap-4 reveal reveal-delay-4"><div class="w-8 h-8 rounded-full bg-brand/15 flex items-center justify-center flex-shrink-0 mt-0.5"><svg class="w-4 h-4 text-brand" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg></div><span class="text-slate-700 pt-1">Free on-site parking & WhatsApp booking</span></li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<!-- TESTIMONIALS -->
-<section id="testimonials" class="py-28">
-  <div class="max-w-6xl mx-auto px-4">
-    <div class="text-center mb-16 reveal">
-      <div class="inline-block text-brand font-semibold text-sm uppercase tracking-[0.2em] mb-3">— Patient Stories —</div>
-      <h2 class="font-display text-4xl md:text-6xl font-bold">Trusted by Cape Town families</h2>
-    </div>
-    <div class="grid md:grid-cols-3 gap-6">
-      
-      <div class="reveal  bg-gradient-to-br from-slate-50 to-white rounded-3xl p-8 border border-slate-100 hover:border-brand/30 hover:shadow-xl transition-all">
-        <div class="text-amber-400 text-lg mb-4 tracking-widest">★★★★★</div>
-        <p class="text-slate-700 leading-relaxed mb-5 text-base italic">"Best dental experience I&#x27;ve ever had. The team made me feel completely at ease."</p>
-        <div class="flex items-center gap-3">
-          <div class="w-10 h-10 rounded-full bg-gradient-to-br from-brand to-brand-dark text-white flex items-center justify-center font-semibold text-sm">S</div>
-          <div class="font-semibold text-slate-900">Sarah M.</div>
-        </div>
-      </div>
-
-      <div class="reveal reveal-delay-2 bg-gradient-to-br from-slate-50 to-white rounded-3xl p-8 border border-slate-100 hover:border-brand/30 hover:shadow-xl transition-all">
-        <div class="text-amber-400 text-lg mb-4 tracking-widest">★★★★★</div>
-        <p class="text-slate-700 leading-relaxed mb-5 text-base italic">"Modern, professional, and genuinely caring. Wouldn&#x27;t go anywhere else."</p>
-        <div class="flex items-center gap-3">
-          <div class="w-10 h-10 rounded-full bg-gradient-to-br from-brand to-brand-dark text-white flex items-center justify-center font-semibold text-sm">J</div>
-          <div class="font-semibold text-slate-900">James T.</div>
-        </div>
-      </div>
-
-      <div class="reveal reveal-delay-3 bg-gradient-to-br from-slate-50 to-white rounded-3xl p-8 border border-slate-100 hover:border-brand/30 hover:shadow-xl transition-all">
-        <div class="text-amber-400 text-lg mb-4 tracking-widest">★★★★★</div>
-        <p class="text-slate-700 leading-relaxed mb-5 text-base italic">"Brought my whole family here for years — the kids actually look forward to visits."</p>
-        <div class="flex items-center gap-3">
-          <div class="w-10 h-10 rounded-full bg-gradient-to-br from-brand to-brand-dark text-white flex items-center justify-center font-semibold text-sm">A</div>
-          <div class="font-semibold text-slate-900">Aisha K.</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FAQ -->
-<section class="py-28 bg-gradient-to-b from-white to-slate-50 relative overflow-hidden">
-  <div class="blob" style="width:400px;height:400px;background:#93c5fd;top:50%;right:-200px;opacity:0.15;"></div>
-  <div class="max-w-3xl mx-auto px-4 relative">
-    <div class="text-center mb-14 reveal">
-      <div class="inline-block text-brand font-semibold text-sm uppercase tracking-[0.2em] mb-3">— Common Questions —</div>
-      <h2 class="font-display text-4xl md:text-6xl font-bold">FAQs</h2>
-    </div>
-    <div class="space-y-3">
-      
-      <details class="reveal  bg-white rounded-2xl border border-slate-100 overflow-hidden hover:border-brand/30 hover:shadow-md transition-all">
-        <summary class="cursor-pointer px-7 py-5 font-semibold text-slate-900 flex justify-between items-center hover:bg-slate-50/50 select-none">
-          <span>Do you accept medical aid?</span>
-          <svg class="chev w-5 h-5 text-brand flex-shrink-0 ml-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
-        </summary>
-        <div class="px-7 pb-6 text-slate-600 leading-relaxed">Yes — we work with all major medical aids in South Africa including Discovery, Bonitas, Momentum, and GEMS. We&#x27;ll handle the claims paperwork for you.</div>
-      </details>
-
-      <details class="reveal reveal-delay-2 bg-white rounded-2xl border border-slate-100 overflow-hidden hover:border-brand/30 hover:shadow-md transition-all">
-        <summary class="cursor-pointer px-7 py-5 font-semibold text-slate-900 flex justify-between items-center hover:bg-slate-50/50 select-none">
-          <span>How do I book an appointment?</span>
-          <svg class="chev w-5 h-5 text-brand flex-shrink-0 ml-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
-        </summary>
-        <div class="px-7 pb-6 text-slate-600 leading-relaxed">Easiest is WhatsApp or the booking form on this page — we&#x27;ll confirm within an hour during business hours. You can also call us directly.</div>
-      </details>
-
-      <details class="reveal reveal-delay-3 bg-white rounded-2xl border border-slate-100 overflow-hidden hover:border-brand/30 hover:shadow-md transition-all">
-        <summary class="cursor-pointer px-7 py-5 font-semibold text-slate-900 flex justify-between items-center hover:bg-slate-50/50 select-none">
-          <span>What if I have a dental emergency?</span>
-          <svg class="chev w-5 h-5 text-brand flex-shrink-0 ml-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
-        </summary>
-        <div class="px-7 pb-6 text-slate-600 leading-relaxed">Call us immediately. We keep slots open daily for emergencies and will see you the same day whenever possible.</div>
-      </details>
-
-      <details class="reveal reveal-delay-4 bg-white rounded-2xl border border-slate-100 overflow-hidden hover:border-brand/30 hover:shadow-md transition-all">
-        <summary class="cursor-pointer px-7 py-5 font-semibold text-slate-900 flex justify-between items-center hover:bg-slate-50/50 select-none">
-          <span>Do you see children?</span>
-          <svg class="chev w-5 h-5 text-brand flex-shrink-0 ml-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
-        </summary>
-        <div class="px-7 pb-6 text-slate-600 leading-relaxed">Absolutely. Our team is experienced with anxious patients of all ages, and we have a calm, kid-friendly approach.</div>
-      </details>
-
-      <details class="reveal reveal-delay-1 bg-white rounded-2xl border border-slate-100 overflow-hidden hover:border-brand/30 hover:shadow-md transition-all">
-        <summary class="cursor-pointer px-7 py-5 font-semibold text-slate-900 flex justify-between items-center hover:bg-slate-50/50 select-none">
-          <span>Is parking available?</span>
-          <svg class="chev w-5 h-5 text-brand flex-shrink-0 ml-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
-        </summary>
-        <div class="px-7 pb-6 text-slate-600 leading-relaxed">Yes, free on-site parking at the practice.</div>
-      </details>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact" class="py-28 bg-slate-950 text-white relative overflow-hidden">
-  <div class="blob" style="width:600px;height:600px;background:#1e40af;top:-200px;left:-200px;opacity:0.25;"></div>
-  <div class="blob animate-float" style="width:400px;height:400px;background:#1e3a8a;bottom:-100px;right:-100px;opacity:0.3;"></div>
-
-  <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-14 relative">
-    <div class="reveal">
-      <div class="text-brand-light font-semibold text-sm uppercase tracking-[0.2em] mb-3">— Get In Touch —</div>
-      <h2 class="font-display text-4xl md:text-6xl font-bold mb-6 leading-[1.05]">Ready when you are.</h2>
-      <p class="text-slate-300 mb-10 leading-relaxed text-lg">Book online, call, or send us a WhatsApp — we'll get back to you within an hour during business hours.</p>
-
-      <div class="space-y-5">
-        <a href="tel:+27 21 790 2910" class="flex items-center gap-4 group">
-          <div class="w-14 h-14 rounded-2xl bg-brand/15 group-hover:bg-brand group-hover:scale-110 transition-all flex items-center justify-center">
-            <svg width="22" height="22" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>
-          </div>
-          <div>
-            <div class="text-sm text-slate-400">Call us</div>
-            <div class="text-lg font-semibold">+27 21 790 2910</div>
-          </div>
+          <div class="arrow"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7" stroke-linecap="round"/></svg></div>
         </a>
-
-        <a href="https://wa.me/27217902910" class="flex items-center gap-4 group">
-          <div class="w-14 h-14 rounded-2xl bg-green-500/15 group-hover:bg-green-500 group-hover:scale-110 transition-all flex items-center justify-center">
-            <svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24z"/></svg>
+        <a class="option magnet" href="tel:+27217902910">
+          <div class="option-body">
+            <div class="k">Phone</div>
+            <div class="v">021 790 2910</div>
           </div>
-          <div>
-            <div class="text-sm text-slate-400">WhatsApp</div>
-            <div class="text-lg font-semibold">Message us</div>
-          </div>
+          <div class="arrow"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7" stroke-linecap="round"/></svg></div>
         </a>
-
-        <div class="flex items-center gap-4">
-          <div class="w-14 h-14 rounded-2xl bg-brand/15 flex items-center justify-center">
-            <svg width="22" height="22" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a6 6 0 00-6 6c0 4.5 6 10 6 10s6-5.5 6-10a6 6 0 00-6-6zm0 8a2 2 0 110-4 2 2 0 010 4z"/></svg>
+        <a class="option magnet" href="mailto:info@hbds.co.za?subject=Appointment%20enquiry">
+          <div class="option-body">
+            <div class="k">Email</div>
+            <div class="v">info@hbds.co.za</div>
           </div>
-          <div>
-            <div class="text-sm text-slate-400">Visit</div>
-            <div class="text-lg font-semibold">Joslyn Place, 34 Victoria Ave, Hout Bay</div>
-          </div>
-        </div>
-
-        <div class="flex items-center gap-4">
-          <div class="w-14 h-14 rounded-2xl bg-brand/15 flex items-center justify-center">
-            <svg width="22" height="22" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a8 8 0 100 16 8 8 0 000-16zm1 8.414V5a1 1 0 10-2 0v6a1 1 0 00.293.707l3 3a1 1 0 001.414-1.414L11 10.414z"/></svg>
-          </div>
-          <div>
-            <div class="text-sm text-slate-400">Hours</div>
-            <div class="text-base font-medium whitespace-pre-line">Mon–Fri  8am – 5pm
-Sat  8am – 1pm
-Sun  Closed</div>
-          </div>
-        </div>
+          <div class="arrow"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7" stroke-linecap="round"/></svg></div>
+        </a>
       </div>
-    </div>
 
-    <div class="reveal reveal-delay-2">
-      <div class="bg-gradient-to-br from-slate-800 to-slate-900 rounded-3xl p-8 border border-slate-700/50 backdrop-blur-xl">
-        <h3 class="font-display text-3xl font-bold mb-2">Request a Booking</h3>
-        <p class="text-slate-400 text-sm mb-6">We'll confirm via WhatsApp within an hour.</p>
-        <form class="space-y-4" onsubmit="event.preventDefault(); window.location.href='https://wa.me/27217902910?text=Hi%2C%20I%27d%20like%20to%20book%20an%20appointment.';">
-          <div>
-            <label class="block text-sm text-slate-400 mb-2">Your Name</label>
-            <input required type="text" class="w-full bg-slate-900/60 border border-slate-700 rounded-xl px-4 py-3.5 focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/30 transition" />
-          </div>
-          <div>
-            <label class="block text-sm text-slate-400 mb-2">Phone</label>
-            <input required type="tel" class="w-full bg-slate-900/60 border border-slate-700 rounded-xl px-4 py-3.5 focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/30 transition" />
-          </div>
-          <div>
-            <label class="block text-sm text-slate-400 mb-2">What do you need?</label>
-            <select class="w-full bg-slate-900/60 border border-slate-700 rounded-xl px-4 py-3.5 focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/30 transition">
-              <option>Check-up & cleaning</option>
-              <option>Whitening</option>
-              <option>Filling / Crown</option>
-              <option>Implant consultation</option>
-              <option>Emergency</option>
-              <option>Other</option>
-            </select>
-          </div>
-          <button type="submit" class="w-full bg-gradient-to-r from-brand to-brand-dark hover:scale-[1.02] text-white py-4 rounded-xl font-semibold transition-all shadow-xl shadow-brand/30">
-            Request Booking →
-          </button>
-        </form>
+      <div class="hours-strip">
+        <div class="day"><span>Monday &ndash; Friday</span><span class="open">8:00 &mdash; 17:00</span></div>
+        <div class="day"><span>Saturday</span><span class="open">9:00 &mdash; 12:00</span></div>
+        <div class="day"><span>Sunday</span><span>Closed</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer class="bg-slate-950 text-slate-500 py-10 border-t border-slate-900">
-  <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
-    <div>© <span id="year"></span> Hout Bay Dental Studio. All rights reserved.</div>
-    <div>Joslyn Place, 34 Victoria Ave, Hout Bay · +27 21 790 2910</div>
+<!-- FOOTER ──────────────────────────────────────────────────── -->
+<footer>
+  <div class="wrap">
+    <div class="footer-mega"><em>Hout</em> <em>Bay</em><span class="accent"><em>.</em></span></div>
+
+    <div class="footer-meta">
+      <div>
+        <b>Practice</b>
+        Hout Bay Dental Studio<br>
+        Established 1983<br>
+        Joslyn Place
+      </div>
+      <div>
+        <b>Find us</b>
+        34 Victoria Avenue<br>
+        Hout Bay 7806<br>
+        Cape Town &middot; ZA
+      </div>
+      <div>
+        <b>Contact</b>
+        +27 21 790 2910<br>
+        +27 72 600 3589 (WA)<br>
+        info@hbds.co.za
+      </div>
+      <div>
+        <b>Spoken</b>
+        English<br>
+        Afrikaans<br>
+        Nederlands<br>
+        Deutsch
+      </div>
+    </div>
+
+    <div class="footer-fine">&copy; 2026 Hout Bay Dental Studio &middot; HPCSA registered &middot; All rights reserved.</div>
   </div>
 </footer>
 
-<!-- Floating WhatsApp -->
-<a href="https://wa.me/27217902910" class="fixed bottom-6 right-6 w-16 h-16 bg-gradient-to-br from-green-400 to-green-600 hover:from-green-500 hover:to-green-700 text-white rounded-full shadow-2xl flex items-center justify-center z-40 transition transform hover:scale-110 wa-pulse">
-  <svg width="28" height="28" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
-</a>
+<!-- Mobile floating CTA -->
+<div class="float-cta">
+  <a href="tel:+27217902910">Call</a>
+  <a class="wa" href="https://wa.me/27726003589">WhatsApp</a>
+</div>
 
 <script>
-document.getElementById('year').textContent = new Date().getFullYear();
+// Loader: hide after CSS animation completes
+window.addEventListener('load', () => {
+  setTimeout(() => document.getElementById('loader').classList.add('done'), 3500);
+});
 
-// Reveal-on-scroll using IntersectionObserver
+// Custom cursor (desktop)
+(function () {
+  if (matchMedia('(hover: none)').matches || window.innerWidth < 1024) return;
+  const cursor = document.querySelector('.cursor');
+  const ring   = document.querySelector('.cursor-ring');
+  let mx = -100, my = -100, rx = -100, ry = -100;
+  window.addEventListener('pointermove', (e) => {
+    mx = e.clientX; my = e.clientY;
+    cursor.style.transform = `translate(${mx}px, ${my}px)`;
+  });
+  (function loop() {
+    rx += (mx - rx) * 0.18;
+    ry += (my - ry) * 0.18;
+    ring.style.transform = `translate(${rx}px, ${ry}px)`;
+    requestAnimationFrame(loop);
+  })();
+  document.querySelectorAll('a, button, .svc-row, .lang-stack li, .voice').forEach(el => {
+    el.addEventListener('pointerenter', () => ring.classList.add('expand'));
+    el.addEventListener('pointerleave', () => ring.classList.remove('expand'));
+  });
+})();
+
+// Magnetic buttons (desktop only)
+if (!matchMedia('(hover: none)').matches) {
+  document.querySelectorAll('.magnet').forEach(el => {
+    el.addEventListener('pointermove', (e) => {
+      const r = el.getBoundingClientRect();
+      const x = e.clientX - (r.left + r.width / 2);
+      const y = e.clientY - (r.top + r.height / 2);
+      el.style.transform = `translate(${x * 0.18}px, ${y * 0.28}px)`;
+    });
+    el.addEventListener('pointerleave', () => { el.style.transform = ''; });
+  });
+}
+
+// Reveal on scroll
 const io = new IntersectionObserver((entries) => {
   entries.forEach(e => {
     if (e.isIntersecting) {
-      e.target.classList.add('visible');
-      // Animate counter if present
-      const counters = e.target.querySelectorAll('.counter');
-      counters.forEach(c => {
-        if (c.dataset.done) return;
-        c.dataset.done = '1';
-        const target = parseFloat(c.dataset.target);
-        const divisor = parseFloat(c.dataset.divisor || '1');
-        const suffix = c.dataset.suffix || '';
-        const duration = 1400;
-        const startTime = performance.now();
-        const tick = (now) => {
-          const p = Math.min(1, (now - startTime) / duration);
-          const eased = 1 - Math.pow(1 - p, 3);
-          let value = target * eased / divisor;
-          // Format
-          let display;
-          if (divisor !== 1) display = value.toFixed(1);
-          else if (target >= 1000) display = Math.floor(value).toLocaleString();
-          else display = Math.floor(value);
-          c.textContent = display + (p === 1 ? suffix : '');
-          if (p < 1) requestAnimationFrame(tick);
-          else c.textContent = (divisor !== 1 ? (target/divisor).toFixed(1) : (target >= 1000 ? Math.floor(target).toLocaleString() : target)) + suffix;
-        };
-        requestAnimationFrame(tick);
-      });
+      e.target.classList.add('in');
       io.unobserve(e.target);
     }
   });
-}, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
-
+}, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 </script>
 </body>
